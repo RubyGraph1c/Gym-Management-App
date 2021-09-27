@@ -10,7 +10,7 @@ import repos.booking_repo as booking_repo
 def save(member):
     sql = "INSERT INTO members( name ) VALUES ( %s ) RETURNING id"
     values = [member.name]
-    results = run_sql( sql, values )
+    results = run_sql(sql, values)
     member.id = results[0]['id']
     return member
 
@@ -22,7 +22,7 @@ def select_all():
     sql = "SELECT * FROM members"
     results = run_sql(sql)
     for row in results:
-        member = member(row['name'], row['id'])
+        member = Member(row['name'], row['id'])
         members.append(member)
     return members
 

@@ -12,7 +12,7 @@ app.register_blueprint(members_blueprint)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('/index.html')
 
 @app.route('/privacy_policy')
 def privacy_policy():

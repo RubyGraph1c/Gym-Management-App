@@ -10,10 +10,15 @@ members_blueprint = Blueprint("members", __name__)
 @members_blueprint.route("/members")
 def members():
     members = member_repo.select_all()
-    return render_template("members/index.html", members = members)
+    return render_template("members/members_list.html", members = members)
 
 @members_blueprint.route("/members/<id>")
 def show(id):
     member = member_repo.select(id)
     sessions = member_repo.sessions(member)
     return render_template("members/show.html", member=member, sessions = sessions)
+
+@members_blueprint.route("/members/<id>/delete", methods = ['DELETE'])
+def delete_member(id):
+    member_repo.delete(id)
+    return redirect('members/members_list.html')
