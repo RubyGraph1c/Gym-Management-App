@@ -49,13 +49,13 @@ def delete(id):
     run_sql(sql, values)
 
 
-# def members(session):
-#     members = []
-#     sql = "SELECT members.* FROM members INNER JOIN visits ON visits.member_id = members.id WHERE session_id = %s"
-#     values = [session.id]
-#     results = run_sql(sql, values)
+def members(session):
+    members = []
+    sql = "SELECT members.* FROM members INNER JOIN visits ON visits.member_id = members.id WHERE session_id = %s"
+    values = [session.id]
+    results = run_sql(sql, values)
     
-#     for row in results: 
-#         member = member(row['name'], row['id'])
-#         members.append(member)
-#     return members
+    for row in results: 
+        member = member(row['name'], row['id'])
+        members.append(member)
+    return members

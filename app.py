@@ -14,5 +14,9 @@ app.register_blueprint(members_blueprint)
 def home():
     return render_template('index.html')
 
+@app.route('/privacy_policy')
+def privacy_policy():
+    return render_template('/privacy_policy.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,15 +1,20 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 
 {% block content %}
+    
 <h1> {{session.name}} </h1>
 
 <p>category: {{ session.category }}</p>
 
-<h3>Booked by:</h3>
+<h3>Booking details:</h3>
 <ul>
     {% for member in members  %}
     <li>{{ member.name }}</li>
     {% endfor %}
 
+    {% for session in sessions  %}
+    <li>{{ session.name }}</li>
+    {% endfor %}
+
 </ul>
-{% endblock %}
+{% endblock %} -->

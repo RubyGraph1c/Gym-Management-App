@@ -26,7 +26,7 @@ session_repo.save(session1)
 session2 = Session('Body Balance', 'Yoga/Pilates')
 session_repo.save(session2)
 
-booking1 = Booking(member1, session1, True)
+booking1 = Booking(member1, session1)
 
 
 pdb.set_trace()

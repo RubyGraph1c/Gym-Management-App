@@ -22,10 +22,9 @@ def new_task():
 def create_task():
     member_id = request.form['member_id']
     booking_id = request.form['booking_id']
-    confirmation = request.form['confirmation']
     member = member_repo.select(member_id)
     booking = booking_repo.select(booking_id)
-    booking = booking(member, booking, confirmation)
+    booking = booking(member, booking)
     booking_repo.save(booking)
     return redirect('/bookings')
 
