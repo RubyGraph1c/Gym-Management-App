@@ -31,10 +31,11 @@ def select(id):
     member = None
     sql = "SELECT * FROM members WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
+    result = run_sql(sql, values)
+    # result = run_sql(sql, values)
 
-    if result is not None:
-        member = member(result['name'], result['id'] )
+    if result is not None and len(result) > 0:
+        member = member(result[0]['name'], result[0]['id'])
     return member
 
 #DELETE ALL MEMBERS
@@ -52,10 +53,13 @@ def delete(id):
 
 def sessions(member):
     sessions = []
+    if member is None: 
+        return sessions
     sql = "SELECT sessions.* FROM sessions INNER JOIN bookings ON bookings.session_id = sessions.id WHERE member_id = %s"
     values = [member.id]
     results = run_sql(sql, values)
-    for row in results:
-        session = session(row['name'], row['category'], row['day'], row['time'], row['id'])
-        sessions.append(session)
+    if results is not None and len(results) > 0:
+        for row in results:
+            session = session(row['name'], row['category'], row['day'], row['time'], row['id'])
+            sessions.append(session)
     return sessions

@@ -18,7 +18,7 @@ def show(id):
     sessions = member_repo.sessions(member)
     return render_template("members/show.html", member=member, sessions = sessions)
 
-@members_blueprint.route("/members/<id>/delete", methods = ['DELETE'])
+@members_blueprint.route("/members/<id>/delete", methods = ['GET'])
 def delete_member(id):
     member_repo.delete(id)
-    return redirect('members/members_list.html')
+    return redirect('/members/members_list.html')

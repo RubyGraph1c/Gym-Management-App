@@ -15,6 +15,8 @@ CREATE TABLE sessions (
     time VARCHAR(255)
 );
 
+-- check tables 
+
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     member_id INT REFERENCES members (id) ON DELETE CASCADE,
@@ -27,3 +29,5 @@ VALUES ('Lucinda Shale', 2222);
 
 INSERT INTO members(name, id)
 VALUES ('Charlie Shale', 3333)
+
+-- create form/create member (similar form for edit)
