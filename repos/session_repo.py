@@ -6,6 +6,7 @@ import repos.member_repo as member_repo
 import repos.session_repo as session_repo
 import repos.booking_repo as booking_repo
 
+# CREATE/SAVE SESSION
 def save(session):
     sql = "INSERT INTO sessions(name, category) VALUES ( %s, %s ) RETURNING id"
     values = [session.name, session.category]
@@ -13,6 +14,7 @@ def save(session):
     session.id = results[0]['id']
     return session
 
+# SELECT ALL SESSIONS 
 def select_all():
     sessions = []
 
@@ -24,7 +26,7 @@ def select_all():
         sessions.append(session)
     return sessions
 
-
+# SELECT SPECIFIC SESSION 
 def select(id):
     session = None
     sql = "SELECT * FROM sessions WHERE id = %s"
@@ -35,18 +37,25 @@ def select(id):
         session = session(result['name'], result['category'], result['id'] )
     return session
 
-
+# DELETE ALL SESSIONS 
 def delete_all():
     sql = "DELETE FROM sessions"
     run_sql(sql)
-
-def members(session):
-    members = []
-    sql = "SELECT members.* FROM members INNER JOIN visits ON visits.member_id = members.id WHERE session_id = %s"
-    values = [session.id]
-    results = run_sql(sql, values)
     
-    for row in results: 
-        member = member(row['name'], row['id'])
-        members.append(member)
-    return members
+# DELETE INDIVIDUAL SESSION
+def delete(id):
+    sql = "DELETE FROM members WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+
+# def members(session):
+#     members = []
+#     sql = "SELECT members.* FROM members INNER JOIN visits ON visits.member_id = members.id WHERE session_id = %s"
+#     values = [session.id]
+#     results = run_sql(sql, values)
+    
+#     for row in results: 
+#         member = member(row['name'], row['id'])
+#         members.append(member)
+#     return members

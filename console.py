@@ -26,19 +26,10 @@ session_repo.save(session1)
 session2 = Session('Body Balance', 'Yoga/Pilates')
 session_repo.save(session2)
 
-booking1 = Booking(member1, session1, 'Your booking is confirmed!')
-booking_repo.save(booking1)
+booking1 = Booking(member1, session1, True)
 
-# booking2 = Booking(member3, session1, '5 stars, would booking again if I could')
-# booking_repo.save(booking2)
 
-# booking3 = Booking(member1, session2, '4 stars, plenty of beer available')
-# booking_repo.save(booking3)
-
-# booking4 = Booking(member2, session2, '3 stars, too crowded, could not find my wizard friend')
-# booking_repo.save(booking4)
-
-# pdb.set_trace()
+pdb.set_trace()
 
 print(member_repo.select_all()[0].id)
 print(member_repo.sessions(member1))

@@ -6,6 +6,7 @@ import repos.member_repo as member_repo
 import repos.session_repo as session_repo
 import repos.booking_repo as booking_repo
 
+# SAVE/CREATE MEMBER
 def save(member):
     sql = "INSERT INTO members( name ) VALUES ( %s ) RETURNING id"
     values = [member.name]
@@ -13,6 +14,7 @@ def save(member):
     member.id = results[0]['id']
     return member
 
+# SHOW ALL MEMBERS
 
 def select_all():
     members = []
@@ -24,7 +26,7 @@ def select_all():
         members.append(member)
     return members
 
-
+# SELECT INDIVIDUAL MEMBER
 def select(id):
     member = None
     sql = "SELECT * FROM members WHERE id = %s"
@@ -35,10 +37,18 @@ def select(id):
         member = member(result['name'], result['id'] )
     return member
 
+#DELETE ALL MEMBERS
 
 def delete_all():
     sql = "DELETE FROM members"
     run_sql(sql)
+    
+# DELETE INDIVIDUAL MEMBER
+def delete(id):
+    sql = "DELETE FROM members WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 
 def sessions(member):
     sessions = []
@@ -46,6 +56,6 @@ def sessions(member):
     values = [member.id]
     results = run_sql(sql, values)
     for row in results:
-        session = session(row['name'], row['category'], row['id'])
+        session = session(row['name'], row['category'], row['day'], row['time'], row['id'])
         sessions.append(session)
     return sessions
