@@ -1,24 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Book a Session</h1>
+<h1>Sessions</h1>
 
-<p class="btn--wrapper">
-    <a class="btn btn--action" href="/bookings/new">New booking</a>
-</p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>ID</th>
+    </tr>
+    {% for session in sessions %}
+    <tr>
+        <td><a href="/sessions/{{session.id}}/edit">{{session.name}}</a> </td>
 
-<ul>
-    {% for booking in bookings %}
-    <li>
-        <p>{{ booking.member.name }} - {{ booking.session.name }} </p>
-        <!-- <p>"<i>{{booking.confirmation}}</i>"</p> -->
-    <p>
-        <form action="/bookings/{{ booking.id }}/delete" method="POST">
-        <input class="btn btn--danger" category="submit" value="delete" />
-    </form>
-    </p>
-</li>
-{% endfor %}
-</ul>
+        <td>{{session.id}}</td>
 
+        <td>
+
+            <!-- <a href="/sessions/{{session.id}}/edit">EDIT</a> -->
+        </td>
+        <td>
+            <a href="/sessions/{{session.id}}/delete">DELETE</a>
+
+
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+<br>
+<td>
+
+    <a href="/sessions/create">NEW session</a>
+
+
+</td>
 {% endblock %}

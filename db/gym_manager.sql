@@ -71,6 +71,6 @@ INSERT INTO sessions (name, day, time) VALUES ('Aerobics', 'Saturday', '4PM');
 
 -- -- SESSIONS: SUNDAY 
 
-INSERT INTO sessions (name, day, time) VALUES ('Crossfit', 'Sunday', '9AM'); 
+INSERT INTO sessions (name, day, time) VALUES ('CrossFit', 'Sunday', '9AM'); 
 
 INSERT INTO sessions (name, day, time) VALUES ('LB&T', 'Sunday', '4PM');

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section>
+    <h3>Create New Session</h3>
+    <br>
+    <form action="/sessions/{{ session.id }}" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <br>
+        <div>
+            <label for="day">Day:</label>
+            <select name="day" id="day">
+                <option value="">Monday</option>
+                <option value="">Tuesday</option>
+                <option value="">Wednesday</option>
+                <option value="">Thursday</option>
+                <option value="">Friday</option>
+                <option value="">Saturday</option>
+                <option value="">Sunday</option>
+            </select>
+            </div>
+        <br>
+        <div>
+            <label for="time">Time:</label>
+            <select name="time" id ="time">
+                    <option value="">9AM</option>
+                    <option value="">10AM</option>
+                    <option value="">11AM</option>
+                    <option value="">12PM</option>
+                    <option value="">1PM</option>
+                    <option value="">2PM</option>
+                    <option value="">3PM</option>
+                </select>
+        </div>
+
+
+        <br>
+        <button class="btn btn--danger" type="submit">Create session</button>
+    </form>
+
+</section>
+{% endblock %}

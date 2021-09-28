@@ -31,7 +31,6 @@ def select(id):
     sql = "SELECT * FROM members WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)
-    # result = run_sql(sql, values)
 
     if result is not None and len(result) > 0:
         member = Member(result[0]['name'], result[0]['id'])

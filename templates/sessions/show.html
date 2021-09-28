@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section>
+    <h3>Change Session: {{ session.name }} ( {{ session.time }} {{ session.day }}  )</h3>
+        <br>
+        <form action="/sessions/{{ session.id }}" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <select name="name" id="name">
+                    <option value="">Body Pump</option>
+                    <option value="">Body Balance</option>
+                    <option value="">Body Attack</option>
+                    <option value="">Body Combat</option>
+                    <option value="">Vinyasa Yoga</option>
+                    <option value="">YoPi</option>
+                    <option value="">Stretch</option>
+                    <option value="">Zumba</option>
+                    <option value="">Pilates</option>
+                    <option value="">HIIT</option>
+                    <option value="">Tai Chi</option>
+                    <option value="">Aerobics</option>
+                    <option value="">CrossFit</option>
+                    <option value="">LB&T</option>
+
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="day">Day:</label>
+                <select name="day" id="day">
+                    <option value="">Monday</option>
+                    <option value="">Tuesday</option>
+                    <option value="">Wednesday</option>
+                    <option value="">Thursday</option>
+                    <option value="">Friday</option>
+                    <option value="">Saturday</option>
+                    <option value="">Sunday</option>
+                </select>
+                </div>
+            <br>
+            <div>
+                <label for="time">Time:</label>
+                <select name="time" id ="time">
+                        <option value="">9AM</option>
+                        <option value="">10AM</option>
+                        <option value="">11AM</option>
+                        <option value="">12PM</option>
+                        <option value="">1PM</option>
+                        <option value="">2PM</option>
+                        <option value="">3PM</option>
+                    </select>
+            </div>
+    
+    
+            <br>
+            <button class="btn btn--danger" type="submit">Create session</button>
+        </form>
+    
+    </section>
+
+{% endblock %}
