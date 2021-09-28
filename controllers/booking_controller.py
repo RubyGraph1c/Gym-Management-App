@@ -13,13 +13,13 @@ def bookings():
     return render_template("bookings/index.html", bookings = bookings)
 
 @bookings_blueprint.route("/bookings/new", methods=['GET'])
-def new_task():
+def new_booking():
     members = member_repo.select_all()
     bookings = booking_repo.select_all()
     return render_template("bookings/new.html", members = members, bookings = bookings)
 
 @bookings_blueprint.route("/bookings",  methods=['POST'])
-def create_task():
+def create_booking():
     member_id = request.form['member_id']
     booking_id = request.form['booking_id']
     member = member_repo.select(member_id)

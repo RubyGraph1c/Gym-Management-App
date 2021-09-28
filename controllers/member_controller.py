@@ -41,14 +41,13 @@ def show(id):
 @members_blueprint.route("/members/<id>/edit")
 def edit_member(id):
     member = member_repo.select(id)
-    return render_template('members/edit.html', member=member)
+    return render_template('members/show.html', member = member)
 
 #UPDATE member
-
 @members_blueprint.route("/members/<id>", methods=["POST"])
 def update_member(id):
     name = request.form["name"]
-    member = Member(name, id)
+    member = Member(name)
     member_repo.update(member)
     return redirect("/members")
 
@@ -57,4 +56,6 @@ def update_member(id):
 def delete_member(id):
     member_repo.delete(id)
     return redirect('/members')
+
+##issue with edit/update route 
 

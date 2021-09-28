@@ -10,14 +10,15 @@
   </tr>
   {% for member in members %}
   <tr>
-    <td>{{member.name}} </td>
+    <td><a href = "/members/{{member.id}}/show.html">{{member.name}}</a> </td>
+  
     <td>{{member.id}}</td>
 
     <td>
-      
-      <a href="members/{{member.id}}/edit">EDIT</a>
-      
-<br>
+
+      <a href="/members/{{member.id}}/edit">EDIT</a>
+      </td>
+      <td>
       <a href="/members/{{member.id}}/delete">DELETE</a>
 
     

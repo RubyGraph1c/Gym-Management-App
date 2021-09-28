@@ -15,7 +15,6 @@ def save(member):
     return member
 
 # SHOW ALL MEMBERS
-
 def select_all():
     members = []
 
@@ -35,11 +34,10 @@ def select(id):
     # result = run_sql(sql, values)
 
     if result is not None and len(result) > 0:
-        member = member(result[0]['name'], result[0]['id'])
+        member = Member(result[0]['name'], result[0]['id'])
     return member
 
 #DELETE ALL MEMBERS
-
 def delete_all():
     sql = "DELETE FROM members"
     run_sql(sql)
@@ -50,6 +48,12 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+#UPDATE MEMBER
+def update(member):
+    sql = "UPDATE members SET name = %s WHERE id = %s"
+    values = [member.name]
+    run_sql(sql, values)
+    
 
 def sessions(member):
     sessions = []
