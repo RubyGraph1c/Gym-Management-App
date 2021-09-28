@@ -20,20 +20,20 @@ member_repo.save(member2)
 member3 = Member('Dominique Haig')
 member_repo.save(member3)
 
-session1 = Session('Body Pump', 'Weight-lifting')
-session_repo.save(session1)
+# session1 = Session('Body Pump', 'Weight-lifting')
+# session_repo.save(session1)
 
-session2 = Session('Body Balance', 'Yoga/Pilates')
-session_repo.save(session2)
+# session2 = Session('Body Balance', 'Yoga/Pilates')
+# session_repo.save(session2)
 
-booking1 = Booking(member1, session1)
+# booking1 = Booking(member1, session1)
 
 
 pdb.set_trace()
 
 print(member_repo.select_all()[0].id)
 print(member_repo.sessions(member1))
-print(session_repo.members(session2))
+# print(session_repo.members(session2))
 
 
 

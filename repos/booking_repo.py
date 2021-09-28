@@ -30,9 +30,9 @@ def select_all():
 
 # DELETE ALL BOOKINGS 
 
-# def delete_all():
-#     sql = "DELETE FROM bookings"
-#     run_sql(sql)
+def delete_all():
+    sql = "DELETE FROM bookings"
+    run_sql(sql)
 
 # DELETE INDIVIDUAL BOOKING
 # def delete(id):

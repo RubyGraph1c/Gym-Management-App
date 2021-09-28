@@ -20,7 +20,7 @@ def new_member():
     members = member_repo.select_all()
     return render_template("members/create.html", members = members)
 
-#also create new member????
+# NEW
 @members_blueprint.route("/members/create", methods = ['POST'])
 def create_member():
     name = request.form['name']
@@ -28,19 +28,14 @@ def create_member():
     member_repo.save(member)
     return redirect ("/members")
 
-#show members sessions
+#show MEMBER (by id)
 
-# @members_blueprint.route("/members/<id>")
-# def show(id):
-#     member = member_repo.select(id)
-#     sessions = member_repo.sessions(member)
-#     return render_template("members/show.html", member=member, sessions = sessions)
-    
 @members_blueprint.route("/members/<id>")
 def show(id):
     member = member_repo.select(id)
     sessions = member_repo.sessions(member)
-    return render_template("members/members_list.html", member=member, sessions = sessions)
+    return render_template("members/show.html", member=member, sessions = sessions)
+
 
 #delete member by id - NO NOT CHANGE - FULLY FUNCTIONAL
 @members_blueprint.route("/members/<id>/delete", methods = ['GET'])
