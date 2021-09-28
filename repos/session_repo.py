@@ -8,8 +8,8 @@ import repos.booking_repo as booking_repo
 
 # CREATE/SAVE SESSION
 def save(session):
-    sql = "INSERT INTO sessions(name, category) VALUES ( %s, %s ) RETURNING id"
-    values = [session.name, session.category]
+    sql = "INSERT INTO sessions(name, day, time, id) VALUES ( %s, %s, %s,  ) RETURNING id"
+    values = [session.name, session.day, session.time, session.id]
     results = run_sql( sql, values )
     session.id = results[0]['id']
     return session
@@ -22,7 +22,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        session = session(row['name'], row['category'], row['id'])
+        session = session(row['name'], row['day'], row['time'], row['id'])
         sessions.append(session)
     return sessions
 
@@ -34,7 +34,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        session = session(result['name'], result['category'], result['id'] )
+        session = session(result['name'], result['day'], result['time'], result['id'])
     return session
 
 # DELETE ALL SESSIONS 

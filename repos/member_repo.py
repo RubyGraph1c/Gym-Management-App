@@ -60,6 +60,6 @@ def sessions(member):
     results = run_sql(sql, values)
     if results is not None and len(results) > 0:
         for row in results:
-            session = session(row['name'], row['category'], row['day'], row['time'], row['id'])
+            session = session(row['name'], row['day'], row['time'], row['id'])
             sessions.append(session)
     return sessions

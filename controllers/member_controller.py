@@ -29,15 +29,21 @@ def create_member():
     return redirect ("/members")
 
 #show members sessions
+
+# @members_blueprint.route("/members/<id>")
+# def show(id):
+#     member = member_repo.select(id)
+#     sessions = member_repo.sessions(member)
+#     return render_template("members/show.html", member=member, sessions = sessions)
     
 @members_blueprint.route("/members/<id>")
 def show(id):
     member = member_repo.select(id)
     sessions = member_repo.sessions(member)
-    return render_template("members/show.html", member=member, sessions = sessions)
+    return render_template("members/members_list.html", member=member, sessions = sessions)
 
 #delete member by id - NO NOT CHANGE - FULLY FUNCTIONAL
 @members_blueprint.route("/members/<id>/delete", methods = ['GET'])
 def delete_member(id):
     member_repo.delete(id)
-    return redirect('/members/members_list.html')
+    return redirect('/members')

@@ -11,12 +11,11 @@
   {% for member in members %}
   <tr>
     <td>{{member.name}} </td>
-    <td>{{member.member_id}}</td>
+    <td>{{member.id}}</td>
 
     <td>
 
-         
-          <a href="/members/{{member.member_id}}/delete">DELETE</a>
+      <a href="/members/{{member.id}}/delete">DELETE</a>
 
     
     </td>
