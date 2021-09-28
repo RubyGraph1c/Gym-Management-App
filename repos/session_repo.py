@@ -10,9 +10,7 @@ import repos.booking_repo as booking_repo
 def save(session):
     sql = "INSERT INTO sessions(name, day, time) VALUES ( %s, %s, %s) RETURNING id"
     values = [session.name, session.day, session.time]
-    results = run_sql( sql, values )
-    session.id = results[0]['id']
-    return session
+    run_sql( sql, values )
 
 # SELECT ALL SESSIONS 
 def select_all():
@@ -44,8 +42,14 @@ def delete_all():
     
 # DELETE INDIVIDUAL SESSION
 def delete(id):
-    sql = "DELETE FROM members WHERE id = %s"
+    sql = "DELETE FROM sessions WHERE id = %s"
     values = [id]
+    run_sql(sql, values)
+    
+#UPDATE SESSION
+def update(session):
+    sql = "UPDATE sessions SET name = %s, day = %s, time = %s WHERE id = %s"
+    values = [session.name, session.day, session.time, session.id]
     run_sql(sql, values)
 
 

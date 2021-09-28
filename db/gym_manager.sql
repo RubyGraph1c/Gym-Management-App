@@ -74,3 +74,7 @@ INSERT INTO sessions (name, day, time) VALUES ('Aerobics', 'Saturday', '4PM');
 INSERT INTO sessions (name, day, time) VALUES ('CrossFit', 'Sunday', '9AM'); 
 
 INSERT INTO sessions (name, day, time) VALUES ('LB&T', 'Sunday', '4PM');
+
+--BOOKINGS:
+
+INSERT INTO bookings(member_id, session_id) VALUES (1, 2);

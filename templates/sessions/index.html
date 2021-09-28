@@ -6,15 +6,18 @@
 <table>
     <tr>
         <th>Name</th>
+        <th>Day</th>
+        <th>Time</th>
         <th>ID</th>
+
     </tr>
     {% for session in sessions %}
     <tr>
         <td><a href="/sessions/{{session.id}}/edit">{{session.name}}</a> </td>
 
+        <td>{{session.day}}</td>
+        <td>{{session.time}}</td>
         <td>{{session.id}}</td>
-
-        <td>
 
             <!-- <a href="/sessions/{{session.id}}/edit">EDIT</a> -->
         </td>

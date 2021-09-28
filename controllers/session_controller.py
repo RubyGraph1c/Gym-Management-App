@@ -21,10 +21,12 @@ def new_session():
     return render_template("sessions/create.html", sessions = sessions)
 
 # NEW session
-@sessions_blueprint.route("/sessions/create", methods = ['POST'])
+@sessions_blueprint.route("/sessions/create/new", methods = ['POST'])
 def create_session():
     name = request.form['name']
-    session = Session(name)
+    day = request.form['day']
+    time = request.form['time']
+    session = Session(name, day, time)
     session_repo.save(session)
     return redirect ("/sessions")
 
@@ -46,12 +48,14 @@ def edit_session(id):
 #UPDATE session
 @sessions_blueprint.route("/sessions/<id>", methods=["POST"])
 def update_session(id):
-    name = request.form(["name"]["day"]["time"])
-    session = Session(name, day, time, id)   # BUG!
+    name = request.form['name']
+    day = request.form['day']
+    time = request.form['time']
+    session = Session(name, day, time, id)
     session_repo.update(session)
     return redirect("/sessions")
 
-#delete session by id - NO NOT CHANGE - FULLY FUNCTIONAL
+#delete session by id 
 @sessions_blueprint.route("/sessions/<id>/delete", methods = ['GET'])
 def delete_session(id):
     session_repo.delete(id)

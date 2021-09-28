@@ -6,11 +6,9 @@
     <h3>{{ member.name }}</h3>
     
     <form action="/members/{{ member.id }}" method="POST">
-        <div>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name">
             <button class="btn btn--danger" type="submit">Update Member</button>
-        </div>
     </form>
 
 </section>
