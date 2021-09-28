@@ -33,8 +33,7 @@ def create_member():
 @members_blueprint.route("/members/<id>")
 def show(id):
     member = member_repo.select(id)
-    sessions = member_repo.sessions(member)
-    return render_template("members/show.html", member = member, sessions = sessions)
+    return render_template("members/show.html", member = member)
 
 #EDIT member
 
@@ -57,5 +56,17 @@ def delete_member(id):
     member_repo.delete(id)
     return redirect('/members')
 
+# Book member onto specific session
+
+@members_blueprint.route("/members/<member_id>/book")
+def bookings(member_id):
+    sessions = session_repo.select_all()
+    return render_template ('/members/session.html', member_id = member_id, sessions = sessions)
+
+@members_blueprint.route("/members/<member_id>/book/save", methods = ['POST'])
+def book_member_to_session(member_id):
+    session_id = request.form["session_id"]
+    member_repo.book(member_id, session_id)
+    return redirect ('/members')
 
 

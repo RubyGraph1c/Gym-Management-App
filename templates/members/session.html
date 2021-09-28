@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="/members/{{member_id}}/book/save" method="POST">
+    <label for="session">Session:</label>
+    <select name="session_id" id="session" style="max-width:250x;">
+        {% for session in sessions %}
+        <option value="{{session.id}}">{{session.name}} : {{session.day}} : {{session.time}}</option>
+        {% endfor %}
+    </select>
+    <button class="btn btn--danger" type="submit">Book Session</button>
+</form>
+
+{% endblock %}
+
+<!-- elongate option dropdown - elongate select tag-->

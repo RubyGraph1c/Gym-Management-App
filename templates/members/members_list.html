@@ -10,18 +10,14 @@
   </tr>
   {% for member in members %}
   <tr>
-    <td><a href = "/members/{{member.id}}/edit">{{member.name}}</a> </td>
-  
+    <td><a href="/members/{{member.id}}/edit">{{member.name}}</a> </td>
+
     <td>{{member.id}}</td>
-
     <td>
-
-      <!-- <a href="/members/{{member.id}}/edit">EDIT</a> -->
-      </td>
-      <td>
+      <a href="/members/{{member.id}}/book">BOOK</a>
+    </td>
+    <td>
       <a href="/members/{{member.id}}/delete">DELETE</a>
-
-    
     </td>
   </tr>
 
@@ -29,7 +25,7 @@
 </table>
 <br>
 <td>
- 
+
   <a href="/members/create">NEW MEMBER</a>
 
 

@@ -17,8 +17,7 @@ def sessions():
 #create new session
 @sessions_blueprint.route("/sessions/create", methods = ['GET'])
 def new_session():
-    sessions = session_repo.select_all()
-    return render_template("sessions/create.html", sessions = sessions)
+    return render_template("sessions/create.html")
 
 # NEW session
 @sessions_blueprint.route("/sessions/create/new", methods = ['POST'])
@@ -55,8 +54,10 @@ def update_session(id):
     session_repo.update(session)
     return redirect("/sessions")
 
-#delete session by id 
+#delete session by id:
 @sessions_blueprint.route("/sessions/<id>/delete", methods = ['GET'])
 def delete_session(id):
     session_repo.delete(id)
     return redirect('/sessions')
+
+#show all members booked to specific session:

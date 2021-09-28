@@ -8,7 +8,7 @@ import repos.booking_repo as booking_repo
 
 # SAVE/CREATE MEMBER
 def save(member):
-    sql = "INSERT INTO members( name ) VALUES ( %s ) RETURNING id"
+    sql = "INSERT INTO members( name ) VALUES ( %s )"
     values = [member.name]
     run_sql(sql, values)
 
@@ -64,3 +64,10 @@ def sessions(member):
             session = session(row['name'], row['day'], row['time'], row['id'])
             sessions.append(session)
     return sessions
+
+# Book memebr onto session 
+
+def book(member, session):
+    sql = "INSERT INTO bookings( member_id, session_id ) VALUES ( %s, %s )"
+    values = [member, session]
+    run_sql(sql, values)
