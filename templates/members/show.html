@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> {{member.name}} </h1>
 
-<h3>Member deleted</h3>
-<ul
-</ul>
+<section>
+    <h3>{{ member.name }}</h3>
+    <p>{{ member.member_type.name }}</p>
+    <a href="/members/{{ member.id }}/edit">Edit</a>
+    <form action="/members/{{ member.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+    <a href="/members/{{ member.id }}">Details</a>
+</section>
 
 {% endblock %}
