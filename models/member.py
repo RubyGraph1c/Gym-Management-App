@@ -1,6 +1,6 @@
 class Member:
-    def __init__(self, name, member_id):
+    def __init__(self, name, id = None):
         self.name = name
-        self.member_id = member_id
+        self.id = id
 
         

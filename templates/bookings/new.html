@@ -11,7 +11,8 @@
         <option value="{{ member.id }}">{{ member.name }}</option>
         {% endfor %}
     </select>
-    
+</form>
+<form action="/bookings" method="post">
     <label for="session">Select a session:</label>
     <select name="session_id" id="session">
         {% for session in sessions %}

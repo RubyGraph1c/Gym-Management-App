@@ -7,12 +7,12 @@ import repos.session_repo as session_repo
 import repos.booking_repo as booking_repo
 
 # CREATE/SAVE BOOKING
-def save(booking):
-    sql = "INSERT INTO bookings (member_id, session_id, confirmation) VALUES (%s, %s, %s) RETURNING id"
-    values = [booking.member.id, booking.session.id, booking.confirmation]
-    results = run_sql( sql, values )
-    booking.id = results[0]['id']
-    return booking
+# def save(booking):
+#     sql = "INSERT INTO bookings (member_id, session_id, confirmation) VALUES (%s, %s, %s) RETURNING id"
+#     values = [booking.member.id, booking.session.id, booking.confirmation]
+#     results = run_sql( sql, values )
+#     booking.id = results[0]['id']
+#     return booking
 
 # SHOW ALL BOOKINGS
 def select_all():
@@ -30,12 +30,12 @@ def select_all():
 
 # DELETE ALL BOOKINGS 
 
-def delete_all():
-    sql = "DELETE FROM bookings"
-    run_sql(sql)
+# def delete_all():
+#     sql = "DELETE FROM bookings"
+#     run_sql(sql)
 
 # DELETE INDIVIDUAL BOOKING
-def delete(id):
-    sql = "DELETE FROM bookings WHERE id = %s"
-    values = [id]
-    run_sql(sql, values)
+# def delete(id):
+#     sql = "DELETE FROM bookings WHERE id = %s"
+#     values = [id]
+#     run_sql(sql, values)
