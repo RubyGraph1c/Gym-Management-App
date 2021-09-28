@@ -1,7 +1,7 @@
 from db.run_sql import run_sql
 from models.session import Session
 from models.member import Member
-from models.booking import Booking 
+from models.booking import Booking
 import repos.member_repo as member_repo
 import repos.session_repo as session_repo
 import repos.booking_repo as booking_repo
@@ -51,7 +51,7 @@ def delete(id):
 #UPDATE MEMBER
 def update(member):
     sql = "UPDATE members SET name = %s WHERE id = %s"
-    values = [member.name]
+    values = [member.name, member.id]
     run_sql(sql, values)
     
 

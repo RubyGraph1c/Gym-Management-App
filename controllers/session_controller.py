@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.booking import Booking
+from models.member import Member
 import repos.booking_repo as booking_repo
 import repos.member_repo as member_repo
 import repos.session_repo as session_repo
