@@ -32,48 +32,61 @@ INSERT INTO members(name) VALUES ('Charlie Shale');
 INSERT INTO members(name) VALUES ('Emily Swed'); 
 INSERT INTO members(name) VALUES ('Jennifer Jane'); 
 
--- SESSIONS: MONDAY
+-- SESSIONS:
 
 INSERT INTO sessions (name, day, time) VALUES ('Vinyasa Yoga', 'Monday', '9AM'); 
-
 INSERT INTO sessions (name, day, time) VALUES ('Body Pump', 'Monday', '4PM'); 
 
--- SESSIONS: TUESDAY 
 
 INSERT INTO sessions (name, day, time) VALUES ('Body Balance', 'Tuesday', '9AM'); 
-
 INSERT INTO sessions (name, day, time) VALUES ('Body Combat', 'Tuesday', '4PM'); 
 
--- -- SESSIONS: WEDNESDAY 
 
-INSERT INTO sessions (name, day, time) VALUES ('YoPi', 'Wednesday', '9AM'); 
-
+INSERT INTO sessions (name, day, time) VALUES ('Beginners Yoga', 'Wednesday', '9AM'); 
 INSERT INTO sessions (name, day, time) VALUES ('Body Attack', 'Wednesday', '4PM'); 
 
--- -- SESSIONS: THURSDAY
 
-INSERT INTO sessions (name, day, time) VALUES ('Stretch', 'Thursday', '9AM'); 
+INSERT INTO sessions (name, day, time) VALUES ('Stretch Class', 'Thursday', '9AM'); 
+INSERT INTO sessions (name, day, time) VALUES ('Zumba (Dance)', 'Thursday', '4PM'); 
 
-INSERT INTO sessions (name, day, time) VALUES ('Zumba', 'Thursday', '4PM'); 
 
--- -- SESSIONS: FRIDAY 
+INSERT INTO sessions (name, day, time) VALUES ('Pilates Int', 'Friday', '9AM'); 
+INSERT INTO sessions (name, day, time) VALUES ('HIIT Training', 'Friday', '4PM'); 
 
-INSERT INTO sessions (name, day, time) VALUES ('Pilates', 'Friday', '9AM'); 
 
-INSERT INTO sessions (name, day, time) VALUES ('HIIT', 'Friday', '4PM'); 
-
--- -- SESSIONS: SATURDAY 
-
-INSERT INTO sessions (name, day, time) VALUES ('Tai Chi', 'Saturday', '9AM'); 
-
+INSERT INTO sessions (name, day, time) VALUES ('Tai Chi (60+)', 'Saturday', '9AM'); 
 INSERT INTO sessions (name, day, time) VALUES ('Aerobics', 'Saturday', '4PM'); 
 
--- -- SESSIONS: SUNDAY 
 
-INSERT INTO sessions (name, day, time) VALUES ('CrossFit', 'Sunday', '9AM'); 
+-- NO DEFAULT CLASSES ON A SUNDAY
 
-INSERT INTO sessions (name, day, time) VALUES ('LB&T', 'Sunday', '4PM');
 
 --BOOKINGS:
 
+INSERT INTO bookings(member_id, session_id) VALUES (1, 1);
 INSERT INTO bookings(member_id, session_id) VALUES (1, 2);
+INSERT INTO bookings(member_id, session_id) VALUES (1, 3);
+INSERT INTO bookings(member_id, session_id) VALUES (2, 4);
+INSERT INTO bookings(member_id, session_id) VALUES (2, 5);
+INSERT INTO bookings(member_id, session_id) VALUES (2, 6);
+
+INSERT INTO bookings(member_id, session_id) VALUES (3, 7);
+INSERT INTO bookings(member_id, session_id) VALUES (3, 8);
+INSERT INTO bookings(member_id, session_id) VALUES (3, 9);
+INSERT INTO bookings(member_id, session_id) VALUES (4, 10);
+INSERT INTO bookings(member_id, session_id) VALUES (4, 11);
+INSERT INTO bookings(member_id, session_id) VALUES (4, 12);
+
+INSERT INTO bookings(member_id, session_id) VALUES (5, 1);
+INSERT INTO bookings(member_id, session_id) VALUES (5, 2);
+INSERT INTO bookings(member_id, session_id) VALUES (5, 3);
+INSERT INTO bookings(member_id, session_id) VALUES (6, 4);
+INSERT INTO bookings(member_id, session_id) VALUES (6, 5);
+INSERT INTO bookings(member_id, session_id) VALUES (6, 6);
+
+INSERT INTO bookings(member_id, session_id) VALUES (7, 7);
+INSERT INTO bookings(member_id, session_id) VALUES (7, 8);
+INSERT INTO bookings(member_id, session_id) VALUES (7, 9);
+INSERT INTO bookings(member_id, session_id) VALUES (8, 10);
+INSERT INTO bookings(member_id, session_id) VALUES (8, 11);
+INSERT INTO bookings(member_id, session_id) VALUES (8, 12);

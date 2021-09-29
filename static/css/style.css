@@ -2,7 +2,7 @@ body {
     background: url('/static/images/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    color: #2f79ce;
+    color: #070607;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     padding: 0px;
     margin: 0px;
@@ -16,7 +16,13 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: 1.8em;
-    color: #7ae97a;
+    color: #1b49e2;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #03c333;
     margin-bottom: 20px;
 }
 
