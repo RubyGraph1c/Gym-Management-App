@@ -85,5 +85,3 @@ def get_members_booked(session_id):
         members.append(member)
     return members 
 
-# bookings - takes to - list of names
-#create route, html + for loop 
