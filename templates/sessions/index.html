@@ -19,13 +19,16 @@
         <td>{{session.time}}</td>
         <td>{{session.id}}</td>
 
-            <!-- <a href="/sessions/{{session.id}}/edit">EDIT</a> -->
+        <!-- <a href="/sessions/{{session.id}}/edit">EDIT</a> -->
+
+        </td>
+        <td>
+            <a href="/sessions/{{session.id}}/bookings">BOOKINGS</a>
         </td>
         <td>
             <a href="/sessions/{{session.id}}/delete">DELETE</a>
-
-
         </td>
+
     </tr>
 
     {% endfor %}

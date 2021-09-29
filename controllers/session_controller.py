@@ -1,10 +1,11 @@
+from repos.member_repo import get_members_booked
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.booking import Booking
 from models.session import Session
 import repos.booking_repo as booking_repo
 import repos.session_repo as session_repo
-import repos.session_repo as session_repo
+import repos.member_repo as member_repo
 
 sessions_blueprint = Blueprint("sessions", __name__)
 
@@ -23,6 +24,8 @@ def new_session():
 @sessions_blueprint.route("/sessions/create/new", methods = ['POST'])
 def create_session():
     name = request.form['name']
+    if name == '':
+        return redirect ("/sessions/create")
     day = request.form['day']
     time = request.form['time']
     session = Session(name, day, time)
@@ -48,16 +51,23 @@ def edit_session(id):
 @sessions_blueprint.route("/sessions/<id>", methods=["POST"])
 def update_session(id):
     name = request.form['name']
+    if name == '':
+        return redirect ("/sessions/" + id + "/edit")
     day = request.form['day']
     time = request.form['time']
     session = Session(name, day, time, id)
     session_repo.update(session)
     return redirect("/sessions")
 
-#delete session by id:
+#delete session by id 
 @sessions_blueprint.route("/sessions/<id>/delete", methods = ['GET'])
 def delete_session(id):
     session_repo.delete(id)
     return redirect('/sessions')
 
 #show all members booked to specific session:
+
+@sessions_blueprint.route("/sessions/<id>/bookings")
+def show_members_booked(id):
+    members = member_repo.get_members_booked(id)
+    return render_template('/sessions/bookings.html', members = members)

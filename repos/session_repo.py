@@ -12,11 +12,21 @@ def save(session):
     values = [session.name, session.day, session.time]
     run_sql( sql, values )
 
+
 # SELECT ALL SESSIONS 
 def select_all():
     sessions = []
 
-    sql = "SELECT * FROM sessions"
+    sql = "SELECT * FROM sessions ORDER BY \
+        CASE\
+            WHEN Day = 'Monday' THEN 1\
+            WHEN Day = 'Tuesday' THEN 2\
+            WHEN Day = 'Wednesday' THEN 3\
+            WHEN Day = 'Thursday' THEN 4\
+            WHEN Day = 'Friday' THEN 5\
+            WHEN Day = 'Saturday' THEN 6\
+            WHEN Day = 'Sunday' THEN 7\
+        END"
     results = run_sql(sql)
 
     for row in results:

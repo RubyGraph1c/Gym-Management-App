@@ -40,7 +40,6 @@ INSERT INTO sessions (name, day, time) VALUES ('Body Pump', 'Monday', '4PM');
 
 -- SESSIONS: TUESDAY 
 
-
 INSERT INTO sessions (name, day, time) VALUES ('Body Balance', 'Tuesday', '9AM'); 
 
 INSERT INTO sessions (name, day, time) VALUES ('Body Combat', 'Tuesday', '4PM'); 

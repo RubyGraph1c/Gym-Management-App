@@ -20,13 +20,17 @@ def new_member():
     members = member_repo.select_all()
     return render_template("members/create.html", members = members)
 
-# NEW member
+# save NEW member
 @members_blueprint.route("/members/create", methods = ['POST'])
 def create_member():
     name = request.form['name']
+    # Pop up not essential - not accepting empty string is:
+    if name == '':
+        return redirect ("/members/create")
     member = Member(name)
     member_repo.save(member)
     return redirect ("/members")
+
 
 #show MEMBER (by id)
 
@@ -46,6 +50,8 @@ def edit_member(id):
 @members_blueprint.route("/members/<id>", methods=["POST"])
 def update_member(id):
     name = request.form["name"]
+    if name == '':
+        return redirect ("/members/" + id + "/edit")
     member = Member(name, id)
     member_repo.update(member)
     return redirect("/members")

@@ -23,6 +23,8 @@ def select_all():
         members.append(member)
     return members
 
+
+
 # SELECT INDIVIDUAL MEMBER
 def select(id):
     member = None
@@ -63,11 +65,25 @@ def sessions(member):
         for row in results:
             session = session(row['name'], row['day'], row['time'], row['id'])
             sessions.append(session)
-    return sessions
+    return sessions 
 
-# Book memebr onto session 
+# Book member onto specific session 
 
 def book(member, session):
     sql = "INSERT INTO bookings( member_id, session_id ) VALUES ( %s, %s )"
     values = [member, session]
     run_sql(sql, values)
+    
+
+def get_members_booked(session_id):
+    members = []
+    sql = "SELECT members.* from members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.session_id = %s;"
+    values = [session_id]
+    results = run_sql(sql, values)
+    for row in results:
+        member = Member(row['name'], row['id'])
+        members.append(member)
+    return members 
+
+# bookings - takes to - list of names
+#create route, html + for loop 
